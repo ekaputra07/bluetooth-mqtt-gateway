@@ -11,10 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:background="#000000"
+        android:clickable="false"
+        android:fontFamily="monospace"
         android:freezesText="true"
         android:gravity="bottom"
+        android:padding="10dp"
         android:scrollbars="vertical"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
     <View
         android:layout_width="match_parent"
