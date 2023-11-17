@@ -1,16 +1,16 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a3d8a40d7133497caa11051eaac6f1a2)](https://www.codacy.com/manual/kai-morich/SimpleBluetoothTerminal?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kai-morich/SimpleBluetoothTerminal&amp;utm_campaign=Badge_Grade)
+# bluetooth-mqtt-gateway
 
-# SimpleBluetoothTerminal
+This app is a modified version of [SimpleBluetoothTerminal](https://github.com/kai-morich/SimpleBluetoothTerminal), where I added the ability for the app to publish the Bluetooth message to an MQTT broker. This is part of a project that I'm working on where I need to receive data from Arduino and push them to an MQTT broker, and the rest of the system will handle that data.
 
-This Android app provides a line-oriented terminal / console for classic Bluetooth (2.x) devices implementing the Bluetooth Serial Port Profile (SPP)
+Here's where it sits in my system:
 
-For an overview on Android Bluetooth communication see 
-[Android Bluetooth Overview](https://developer.android.com/guide/topics/connectivity/bluetooth).
-
-This App implements RFCOMM connection to the well-known SPP UUID 00001101-0000-1000-8000-00805F9B34FB
-
-## Motivation
-
-I got various requests asking for help with Android development or source code for my 
-[Serial Bluetooth Terminal](https://play.google.com/store/apps/details?id=de.kai_morich.serial_bluetooth_terminal) app.
-Here you find a simplified version of my app.
+```mermaid
+flowchart LR
+    1a[Sensor 1] --> 2[Arduino];
+    1b[Sensor 2] --> 2[Arduino];
+    1c[Sensor 3] --> 2[Arduino];
+    2[Arduino] -. bluetooth .-> 3[Android Phone w/ bluetooth-mqtt-gateway];
+    3[Android Phone w/ bluetooth-mqtt-gateway] <-. internet .-> 4[MQTT Broker];
+    4[MQTT Broker] <-. internet .-> 5[Subsciber 1];
+    4[MQTT Broker] <-. internet .-> 6[Subsciber 2];
+```
